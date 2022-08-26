@@ -1,17 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/vue@3"></script> 
+    <script src="https://unpkg.com/vue@3"></script>
     <title>Conditional Rendering</title>
 </head>
+
 <body>
     <div id="app">
-        <h1 v-if="showName">{{appName}}</h1>
+        <h1>If-else</h1>
+        <h3 v-if="showName">{{appName}}</h3>
         <button @click="showName=!showName">Toggle</button>
+        <h1>For Loop in array</h1>
+        <ul>
+            <li v-for="(item,i) in cart">
+                {{i}} {{item}}
+            </li>
+        </ul>
+        <button @click="addToCart">Add to cart</button>
+        <h1>For loop in objects</h1>
+        <ul>
+            <li v-for="(v,k,i) in person">
+                {{i+1}}. {{k}} : {{v}}
+            </li>
+        </ul>
+        <h1>forms</h1>
+        <form>
+            <input type="text" v-model="message">
+            <p>Message is : {{message}}</p>
+            <input type="checkbox" v-model="agree"> Agree ?
+            <button v-if="agree">Submit</button>
+        </form>
+        <br>
+        <br>
+        <input type="checkbox" v-model="fruits" value="apple">
+        Apple
+        <input type="checkbox" v-model="fruits" value="pear">
+        Pear
+        <input type="checkbox" v-model="fruits" value="banana">
+        Banana
+        <br>
+        <ul>
+            <li v-for="fruit in fruits">{{fruit}}</li>
+        </ul>
     </div>
     <script src="./script.js"></script>
 </body>
+
 </html>
